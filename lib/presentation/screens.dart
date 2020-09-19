@@ -1,1 +1,1 @@
-export 'login/login.screen.dart';
+export 'screens/login/login.screen.dart';
