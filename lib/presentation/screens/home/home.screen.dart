@@ -6,7 +6,15 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(controller.appbarTitle),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: controller.logout,
+          ),
+        ],
+      ),
       body: Obx(() {
         return ListView.separated(
           itemBuilder: (_, index) {

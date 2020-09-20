@@ -1,13 +1,26 @@
 import 'package:arctekko/services/users/user.model.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 
 class AuthService {
   /// Returns if is user is logged
-  static bool get isAuthenticated => Get.find<User>() != null;
+  static bool get isAuthenticated {
+    try {
+      Get.find<User>();
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
 
-  static User getUser() => Get.find<User>();
+  /// Returns current logged user, null otherwise
+  static User getUser() {
+    try {
+      return Get.find<User>();
+    } catch (err) {
+      return null;
+    }
+  }
 
   /// Try to find User on api, if found set it on Get and SharedPrefs
   /// then return the found user, returns null otherwise.
@@ -38,7 +51,7 @@ class AuthService {
   /// Basically removes user instance from tree and SharedPrefs
   ///
   /// All routing should be done outside this function.
-  static void logout() async {
+  static Future<void> logout() async {
     final user = Get.find<User>();
 
     await Get.delete<User>();

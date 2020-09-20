@@ -1,4 +1,4 @@
-import 'package:arctekko/services/users/auth.service.dart';
+import 'package:arctekko/services/services.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
