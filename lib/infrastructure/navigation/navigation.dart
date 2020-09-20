@@ -30,5 +30,10 @@ class Nav {
       page: () => EnvironmentsBadge(child: LoginScreen()),
       binding: LoginControllerBinding(),
     ),
+    GetPage(
+      name: Routes.HOME,
+      page: () => EnvironmentsBadge(child: HomeScreen()),
+      binding: HomeControllerBinding(),
+    ),
   ];
 }

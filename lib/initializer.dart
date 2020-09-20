@@ -1,3 +1,4 @@
+import 'package:arctekko/services/users/auth.service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -18,6 +19,7 @@ class Initializer {
       _initScreenPreference();
       await _initStorage();
       await _initHive();
+      await _initAuth();
     } catch (err) {
       rethrow;
     }
@@ -44,6 +46,10 @@ class Initializer {
   static Future<void> _initHive() async {
     var dir = await getApplicationDocumentsDirectory();
     Hive..init(dir.path);
+  }
+
+  static Future<void> _initAuth() async {
+    await AuthService.initializeAuth();
   }
 
   static void _initScreenPreference() {

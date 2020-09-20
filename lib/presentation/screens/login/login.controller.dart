@@ -21,14 +21,15 @@ class LoginController extends GetxController {
     loadingController.isLoading = true;
 
     try {
-      final user = await UsersService.login(username);
+      final user = await AuthService.login(username);
 
       if (user == null) {
         _errorMessage.value = 'User not found';
       } else {
-        // Perform login
+        Get.toNamed('home');
       }
     } catch (err) {
+      print(err);
       _errorMessage.value = 'Unexpected error, please try again later';
     }
 
