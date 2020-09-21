@@ -26,7 +26,7 @@ class LoginController extends GetxController {
       if (user == null) {
         _errorMessage.value = 'User not found';
       } else {
-        Get.offNamed('home');
+        Get.offNamed('/home');
       }
     } catch (err) {
       print(err);

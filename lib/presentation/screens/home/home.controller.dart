@@ -24,6 +24,6 @@ class HomeController extends GetxController {
 
   void logout() async {
     await AuthService.logout();
-    Get.offAllNamed('login');
+    Get.offAllNamed('/login');
   }
 }

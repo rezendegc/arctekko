@@ -41,7 +41,7 @@ class AuthService {
     );
 
     if (user != null) {
-      Get.put(user);
+      Get.put(user, permanent: true);
       await user.persist(key: 'auth');
     }
 
