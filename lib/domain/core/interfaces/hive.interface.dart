@@ -17,14 +17,7 @@ mixin BaseHive<T> {
   /// Checks if box is already open or not.
   /// If it is, return already openned box,
   /// otherwise open and then return it.
-  Future<Box<dynamic>> getHiveBox() async {
-    final type = T.toString();
-    if (Hive.isBoxOpen(type)) {
-      return Hive.box(type);
-    } else {
-      return Hive.openBox(type);
-    }
-  }
+  Future<Box<dynamic>> getHiveBox() => Hive.openBox(T.toString());
 
   /// Persists current object on hive box.
   ///
